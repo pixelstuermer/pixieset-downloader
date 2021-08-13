@@ -1,4 +1,6 @@
 import argparse
+import json
+import re
 
 import requests
 
@@ -23,8 +25,37 @@ def perform_page_data_request(arguments, page):
     return requests.get(arguments.base_url, params=parameters, headers=headers, cookies=cookies)
 
 
-def is_last_page(response):
-    return response.json()['isLastPage']
+def perform_image_request(image_url):
+    return requests.get(image_url)
+
+
+def is_last_page(page_data_response):
+    return page_data_response.json()['isLastPage']
+
+
+def get_normalized_url(url):
+    if url.startswith('//'):
+        return url.replace('//', 'https://')
+    else:
+        return url
+
+
+def is_url(url):
+    return re.match('https?://.*', url)
+
+
+def is_image_name(image_name):
+    return re.match('.*\\.(gif|jpe?g|tiff?|png|webp|bmp)', image_name)
+
+
+def get_default_image_name(image_name):
+    return image_name.rsplit('/', 1)[-1]
+
+
+def save_image_to_file(image_name, image_data):
+    image_file = open(image_name, 'wb')
+    image_file.write(image_data)
+    image_file.close()
 
 
 def main():
@@ -32,8 +63,18 @@ def main():
     has_next_page = True
     page = 0
     while has_next_page:
-        response = perform_page_data_request(arguments, page)
-        has_next_page = not is_last_page(response)
+        page_data_response = perform_page_data_request(arguments, page)
+        page_data = json.loads(page_data_response.json()['content'])
+
+        for image_data in page_data:
+            for key in image_data:
+                normalized_key = get_normalized_url(str(image_data[key]))
+                if (is_url(normalized_key)) and (is_image_name(normalized_key)):
+                    image_response = perform_image_request(normalized_key)
+                    file_name = get_default_image_name(normalized_key)
+                    save_image_to_file(file_name, image_response.content)
+
+        has_next_page = not is_last_page(page_data_response)
         page += 1
 
 
