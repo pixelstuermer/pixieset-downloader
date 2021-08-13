@@ -3,6 +3,7 @@ import json
 import re
 
 import requests
+from hurry.filesize import size
 
 
 def init_arguments_parser():
@@ -55,13 +56,18 @@ def get_default_image_name(image_name):
 def save_image_to_file(image_name, image_data):
     image_file = open(image_name, 'wb')
     image_file.write(image_data)
+    image_file.seek(0, 2)
+    image_file_size = image_file.tell()
     image_file.close()
+    return image_file_size
 
 
 def main():
     arguments = init_arguments_parser()
     has_next_page = True
     page = 0
+    images_counter = 0
+    image_size_counter = 0
     while has_next_page:
         page_data_response = perform_page_data_request(arguments, page)
         page_data = json.loads(page_data_response.json()['content'])
@@ -71,11 +77,16 @@ def main():
                 normalized_key = get_normalized_url(str(image_data[key]))
                 if (is_url(normalized_key)) and (is_image_name(normalized_key)):
                     image_response = perform_image_request(normalized_key)
-                    file_name = get_default_image_name(normalized_key)
-                    save_image_to_file(file_name, image_response.content)
+                    image_name = get_default_image_name(normalized_key)
+                    image_size = save_image_to_file(image_name, image_response.content)
+                    images_counter += 1
+                    image_size_counter += image_size
+                    print('File: ' + str(images_counter) + ', Name: ' + image_name + ', Size: ' + size(image_size))
 
         has_next_page = not is_last_page(page_data_response)
         page += 1
+
+    print('Downloaded ' + str(images_counter) + ' files with about ' + size(image_size_counter))
 
 
 main()
