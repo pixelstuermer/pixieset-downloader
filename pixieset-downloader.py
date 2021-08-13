@@ -15,6 +15,7 @@ def init_arguments_parser():
     arguments_parser.add_argument('cookie', type=str, help='valid HTTP session cookie')
     arguments_parser.add_argument('-f', '--filename', type=str, help='file name schema')
     arguments_parser.add_argument('-s', '--separator', type=str, help='file name counter separator', default='_')
+    arguments_parser.add_argument('-r', '--regex', type=str, help='original file name regex filter', default='.*')
     return arguments_parser.parse_args()
 
 
@@ -51,16 +52,20 @@ def is_image_name(image_name):
     return re.match('.*\\.(gif|jpe?g|tiff?|png|webp|bmp)', image_name)
 
 
+def matches(file_name_filter, file_name):
+    return re.match(file_name_filter, file_name)
+
+
 def get_default_image_name(image_name):
     return image_name.rsplit('/', 1)[-1]
 
 
-def get_file_suffix(file_name):
-    return file_name.rsplit('.', 1)[-1]
-
-
 def get_custom_image_name(image_name, separator, counter, file_suffix):
     return image_name + separator + str(counter) + '.' + file_suffix
+
+
+def get_file_suffix(file_name):
+    return file_name.rsplit('.', 1)[-1]
 
 
 def save_image_to_file(image_name, image_data):
@@ -84,8 +89,9 @@ def main():
 
         for image_data in page_data:
             for key in image_data:
+                name_filter = arguments.regex
                 normalized_key = get_normalized_url(str(image_data[key]))
-                if (is_url(normalized_key)) and (is_image_name(normalized_key)):
+                if is_url(normalized_key) and is_image_name(normalized_key) and matches(name_filter, normalized_key):
                     if arguments.filename is not None:
                         separator = arguments.separator
                         file_suffix = get_file_suffix(normalized_key)
