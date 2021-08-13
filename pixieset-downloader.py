@@ -8,11 +8,13 @@ from hurry.filesize import size
 
 def init_arguments_parser():
     arguments_parser = argparse.ArgumentParser()
-    arguments_parser.add_argument('base_url', type=str, help='Base URL')
-    arguments_parser.add_argument('collection_id', type=int, help='Collection ID')
-    arguments_parser.add_argument('collection_key', type=str, help='Collection key')
-    arguments_parser.add_argument('gallery_name', type=str, help='Gallery name')
-    arguments_parser.add_argument('cookie', type=str, help='Valid HTTP session cookie')
+    arguments_parser.add_argument('base_url', type=str, help='base URL')
+    arguments_parser.add_argument('collection_id', type=int, help='collection ID')
+    arguments_parser.add_argument('collection_key', type=str, help='collection key')
+    arguments_parser.add_argument('gallery_name', type=str, help='gallery name')
+    arguments_parser.add_argument('cookie', type=str, help='valid HTTP session cookie')
+    arguments_parser.add_argument('-f', '--filename', type=str, help='file name schema')
+    arguments_parser.add_argument('-s', '--separator', type=str, help='file name counter separator', default='_')
     return arguments_parser.parse_args()
 
 
@@ -53,6 +55,14 @@ def get_default_image_name(image_name):
     return image_name.rsplit('/', 1)[-1]
 
 
+def get_file_suffix(file_name):
+    return file_name.rsplit('.', 1)[-1]
+
+
+def get_custom_image_name(image_name, separator, counter, file_suffix):
+    return image_name + separator + str(counter) + '.' + file_suffix
+
+
 def save_image_to_file(image_name, image_data):
     image_file = open(image_name, 'wb')
     image_file.write(image_data)
@@ -76,8 +86,13 @@ def main():
             for key in image_data:
                 normalized_key = get_normalized_url(str(image_data[key]))
                 if (is_url(normalized_key)) and (is_image_name(normalized_key)):
+                    if arguments.filename is not None:
+                        separator = arguments.separator
+                        file_suffix = get_file_suffix(normalized_key)
+                        image_name = get_custom_image_name(arguments.filename, separator, images_counter, file_suffix)
+                    else:
+                        image_name = get_default_image_name(normalized_key)
                     image_response = perform_image_request(normalized_key)
-                    image_name = get_default_image_name(normalized_key)
                     image_size = save_image_to_file(image_name, image_response.content)
                     images_counter += 1
                     image_size_counter += image_size
