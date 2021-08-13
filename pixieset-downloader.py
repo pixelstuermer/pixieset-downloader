@@ -100,9 +100,9 @@ def main():
                         image_name = get_default_image_name(normalized_key)
                     image_response = perform_image_request(normalized_key)
                     image_size = save_image_to_file(image_name, image_response.content)
+                    print('File: ' + str(images_counter) + ', Name: ' + image_name + ', Size: ' + size(image_size))
                     images_counter += 1
                     image_size_counter += image_size
-                    print('File: ' + str(images_counter) + ', Name: ' + image_name + ', Size: ' + size(image_size))
 
         has_next_page = not is_last_page(page_data_response)
         page += 1
