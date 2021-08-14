@@ -51,7 +51,28 @@ The required packages can be easily installed by running `pip install -r require
 
 == Required Arguments Paper Chase
 
-Tbd.
+Accessing the protected Pixieset API to get the page/overview data requires some research at first:
+
+1. Browse to the collection with your browser and log in (if the collection is private).
+2. After the gallery view has loaded, open the developer tools of your browser
+3. Depending on your browser, the `PHPSESSID` HTTP session cookie can be found at the "storage" or "application" panel
+4. The other data can be found at the "network" tab (maybe requires to refresh the page)
+** The Pixieset client fires a `loadphotos` request, which must further be inspected
+** The `base_url` is the URL from the beginning up to where the query parameters start
+** The `cuk` query parameter serves as the `collection_key` argument
+** The `cid` query parameter serves as the `collection_id` argument
+** The `gs` query parameter serves as the `gallery_name` argument
+
+The following `loadphotos` request example shows the mapping between the query parameters and the script arguments again:
+
+----
+https://josevilla.pixieset.com/client/loadphotos/?cuk=lilyandjonathan&cid=3301757&gs=highlights&fk=&page=1
+
+base_url = URL = https://josevilla.pixieset.com/client/loadphotos
+collection_key = cuk = lilyandjonathan
+collection_id = cid = 3301757
+gallery_name = gs = highlights
+----
 
 == How To Use
 
