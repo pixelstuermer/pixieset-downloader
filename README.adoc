@@ -12,7 +12,8 @@ image:https://img.shields.io/github/issues/pixelstuermer/pixieset-downloader[lin
 [discrete]
 = pixieset-downloader
 
-Batch download of Pixieset collections.
+Batch download of Pixieset collections. +
+See GitHub pages https://pixelstuermer.github.io/pixieset-downloader/[here].
 
 image:https://forthebadge.com/images/badges/works-on-my-machine.svg[link=https://forthebadge.com]
 
