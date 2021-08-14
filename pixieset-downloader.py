@@ -90,15 +90,15 @@ def main():
         for image_data in page_data:
             for key in image_data:
                 name_filter = arguments.regex
-                normalized_key = get_normalized_url(str(image_data[key]))
-                if is_url(normalized_key) and is_image_name(normalized_key) and matches(name_filter, normalized_key):
+                value = get_normalized_url(str(image_data[key]))
+                if is_url(value) and is_image_name(value) and matches(name_filter, value):
                     if arguments.filename is not None:
                         separator = arguments.separator
-                        file_suffix = get_file_suffix(normalized_key)
+                        file_suffix = get_file_suffix(value)
                         image_name = get_custom_image_name(arguments.filename, separator, images_counter, file_suffix)
                     else:
-                        image_name = get_default_image_name(normalized_key)
-                    image_response = perform_image_request(normalized_key)
+                        image_name = get_default_image_name(value)
+                    image_response = perform_image_request(value)
                     image_size = save_image_to_file(image_name, image_response.content)
                     print('File: ' + str(images_counter) + ', Name: ' + image_name + ', Size: ' + size(image_size))
                     images_counter += 1
