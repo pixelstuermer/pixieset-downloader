@@ -53,11 +53,11 @@ The required packages can be easily installed by running `pip install -r require
 
 Accessing the protected Pixieset API to get the page/overview data requires some research at first:
 
-1. Browse to the collection with your browser and log in (if the collection is private).
+1. Visit the collection with your browser and log in (if the collection is private)
 2. After the gallery view has loaded, open the developer tools of your browser
 3. Depending on your browser, the `PHPSESSID` HTTP session cookie can be found at the "storage" or "application" panel
-4. The other data can be found at the "network" tab (maybe requires to refresh the page)
-** The Pixieset client fires a `loadphotos` request, which must further be inspected
+4. The other required data can be found at the "network" tab (a refresh of the page might be required to see the requests):
+The Pixieset client fires a `loadphotos` request, which must further be inspected
 ** The `base_url` is the URL from the beginning up to where the query parameters start
 ** The `cuk` query parameter serves as the `collection_key` argument
 ** The `cid` query parameter serves as the `collection_id` argument
