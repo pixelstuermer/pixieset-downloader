@@ -9,13 +9,13 @@ image:https://github.com/pixelstuermer/pixieset-downloader/actions/workflows/asc
 image:https://img.shields.io/github/issues-pr/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/pulls]
 image:https://img.shields.io/github/issues/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/issues]
 
+image:https://forthebadge.com/images/badges/works-on-my-machine.svg[link=https://forthebadge.com]
+
 [discrete]
 = pixieset-downloader
 
 Batch download of Pixieset collections. +
-See GitHub pages https://pixelstuermer.github.io/pixieset-downloader/[here].
-
-image:https://forthebadge.com/images/badges/works-on-my-machine.svg[link=https://forthebadge.com]
+See https://pixelstuermer.github.io/pixieset-downloader[GitHub pages] or https://github.com/pixelstuermer/pixieset-downloader[GitHub project].
 
 toc::[]
 
