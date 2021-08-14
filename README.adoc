@@ -22,7 +22,21 @@ toc::[]
 
 == TL;DR
 
-Tbd.
+Download the https://github.com/pixelstuermer/pixieset-downloader/tags[latest release] and install https://www.python.org/downloads/release/python-396[Python 3.9.6], then switch to the root directory and run `pip install -r requirements.txt`.
+Find out the required arguments `base_url`, `collection_id`, `collection_key`, `gallery_name` and obtain a valid HTTP session `cookie`.
+The optional arguments `--filename`, `--separator` and `--regex` can specify the images to download and the target file names.
+
+Then run the following:
+
+----
+python pixieset-downloader.py [-f FILENAME] [-s SEPARATOR] [-r REGEX] base_url collection_id collection_key gallery_name cookie
+----
+
+Or run the following for CLI usage help:
+
+----
+python pixieset-downloader.py -h
+----
 
 == About
 
