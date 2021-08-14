@@ -49,13 +49,28 @@ The script can filter the images to be downloaded via an user-given RegEx and it
 Built with/for https://www.python.org/downloads/release/python-396[Python 3.9.6].
 The required packages can be easily installed by running `pip install -r requirements.txt` before executing the script.
 
+== Required Arguments Paper Chase
+
+Tbd.
+
 == How To Use
 
-Tbd.
+When the required arguments have been found out, the script is pretty straight forward to use.
+It at least requires the following mandatory arguments:
 
-== Required Arguments
+* `base_url`: The URL where the original Pixieset client makes its requests to, also required for the script to load the page/overview data
+* `collection_id`: The technical identifier of the collection
+* `collection_key`: The human-readable name (slug) of the collection
+* `gallery_name`: Collections can have multiple galleries, this argument specifies from which one to get the images from
+* `cookie`: After logging in via a browser first, the cookie ensures that the protected endpoints can be requested by the script as well
 
-Tbd.
+With the following optional arguments, the images can be filtered and the target file names can be adjusted:
+
+* `-f` or `--filename`: The file naming scheme (if not given, the original cryptic Pixieset name is used)
+* `-s` or `--separator`: The counter separator to use when a custom file naming scheme is specified (if not given `_` is used as the default)
+* `-r` or `--regex`: The RegEx filter to specify which images to download (if not given `.*` is used and all found images are downloaded)
+
+It is recommended to surround the RegEx argument with apostrophes: `"{complex-regex}"`.
 
 == Example
 
