@@ -13,7 +13,7 @@ def init_arguments_parser():
     arguments_parser.add_argument('collection_key', type=str, help='collection key')
     arguments_parser.add_argument('gallery_name', type=str, help='gallery name')
     arguments_parser.add_argument('cookie', type=str, help='valid HTTP session cookie')
-    arguments_parser.add_argument('-f', '--filename', type=str, help='file name schema')
+    arguments_parser.add_argument('-f', '--filename', type=str, help='file name scheme')
     arguments_parser.add_argument('-s', '--separator', type=str, help='file name counter separator', default='_')
     arguments_parser.add_argument('-r', '--regex', type=str, help='original file name regex filter', default='.*')
     return arguments_parser.parse_args()

@@ -57,9 +57,17 @@ Tbd.
 
 Tbd.
 
-== Examples
+== Example
 
-Tbd.
+The following example accesses the publicly available https://josevilla.pixieset.com/lilyandjonathan[example collection] of Pixieset named `lilyandjonathan`.
+The ID `3301757` can be found out when browsing the example collection and using the browser's developer tools.
+The same applies to the given HTTP session cookie, which is not revealed in the example below.
+It downloads all images of the `highlights` gallery having `xxlarge` in their name.
+It then saves them with the naming scheme `example` and uses `-` as the counter separator.
+
+----
+python pixieset-downloader.py https://josevilla.pixieset.com/client/loadphotos 3301757 lilyandjonathan highlights {cookie} -r ".*xxlarge.*" -f "example" -s "-"
+----
 
 == Limitations
 
