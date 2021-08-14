@@ -29,7 +29,8 @@ Tbd.
 
 == Requirements
 
-Tbd.
+Built with/for https://www.python.org/downloads/release/python-396[Python 3.9.6].
+The required packages can be easily installed by running `pip install -r requirements.txt` before executing the script.
 
 == How To Use
 
