@@ -40,7 +40,9 @@ python pixieset-downloader.py -h
 
 == About
 
-Tbd.
+Python script to download all found images of a Pixieset collection.
+The mandatory arguments for the Pixieset API requests must unfortunately be found out via the browser developer tools when a collection website is accessed.
+The script can filter the images to be downloaded via an user-given RegEx and it stores the images according to an user-defined naming scheme.
 
 == Requirements
 
