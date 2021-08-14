@@ -2,7 +2,7 @@
 :toclevels: 1
 :toc-title:
 
-image:https://img.shields.io/github/v/tag/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/releases/latest]
+image:https://img.shields.io/github/v/tag/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/tags]
 image:https://img.shields.io/github/license/pixelstuermer/pixieset-downloader[link=LICENSE]
 image:https://img.shields.io/badge/python-v3.9.6-blue[link=https://www.python.org/downloads/release/python-396] +
 image:https://github.com/pixelstuermer/pixieset-downloader/actions/workflows/lint-python.yml/badge.svg[link=https://github.com/pixelstuermer/pixieset-downloader/actions/workflows/lint-python.yml]
@@ -49,8 +49,6 @@ Tbd.
 
 The downloaded images might still be watermarked and are maybe with lower quality than the originals – which is good to support your local photographers!
 It is also not guaranteed that absolutely all images have been downloaded, so this should be verified manually.
-
-args https://johannesfeederle.pixieset.com/client/loadphotos/ 37445558 familiemontesano highlights1 hqe6lqubejofvm0v2qp2dhjs61
 
 == Changelog
 
