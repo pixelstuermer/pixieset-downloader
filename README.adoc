@@ -2,7 +2,7 @@
 :toclevels: 1
 :toc-title:
 
-image:https://img.shields.io/github/v/tag/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/tags]
+image:https://img.shields.io/github/v/tag/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/releases/latest]
 image:https://img.shields.io/github/license/pixelstuermer/pixieset-downloader[link=LICENSE]
 image:https://img.shields.io/badge/python-v3.9.6-blue[link=https://www.python.org/downloads/release/python-396] +
 image:https://github.com/pixelstuermer/pixieset-downloader/actions/workflows/lint-python.yml/badge.svg[link=https://github.com/pixelstuermer/pixieset-downloader/actions/workflows/lint-python.yml]
