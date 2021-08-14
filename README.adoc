@@ -42,7 +42,7 @@ python pixieset-downloader.py -h
 
 Python script to download all found images of a Pixieset collection.
 The mandatory arguments for the Pixieset API requests must unfortunately be found out via the browser developer tools when a collection website is accessed.
-The script can filter the images to be downloaded via an user-given RegEx and it stores the images according to an user-defined naming scheme.
+The script can filter the images to be downloaded via a user-given RegEx, and it stores the images according to a user-defined naming scheme.
 
 == Requirements
 
@@ -55,7 +55,7 @@ Accessing the protected Pixieset API to get the page/overview data requires some
 
 1. Visit the collection with your browser and log in (if the collection is private)
 2. After the gallery view has loaded, open the developer tools of your browser
-3. Depending on your browser, the `PHPSESSID` HTTP session cookie can be found at the "storage" or "application" panel
+3. Depending on your browser, the `PHPSESSID` HTTP session `cookie` can be found at the "storage" or "application" panel
 4. The other required data can be found at the "network" tab (a refresh of the page might be required to see the requests):
 The Pixieset client fires a `loadphotos` request, which must further be inspected
 ** The `base_url` is the URL from the beginning up to where the query parameters start
@@ -82,7 +82,7 @@ It at least requires the following mandatory arguments:
 * `base_url`: The URL where the original Pixieset client makes its requests to, also required for the script to load the page/overview data
 * `collection_id`: The technical identifier of the collection
 * `collection_key`: The human-readable name (slug) of the collection
-* `gallery_name`: Collections can have multiple galleries, this argument specifies from which one to get the images from
+* `gallery_name`: Collections can have multiple galleries, this argument specifies from which gallery to get the images from
 * `cookie`: After logging in via a browser first, the cookie ensures that the protected endpoints can be requested by the script as well
 
 With the following optional arguments, the images can be filtered and the target file names can be adjusted:
@@ -91,7 +91,7 @@ With the following optional arguments, the images can be filtered and the target
 * `-s` or `--separator`: The counter separator to use when a custom file naming scheme is specified (if not given `_` is used as the default)
 * `-r` or `--regex`: The RegEx filter to specify which images to download (if not given `.*` is used and all found images are downloaded)
 
-It is recommended to surround the RegEx argument with apostrophes: `"{complex-regex}"`.
+It is recommended to surround at least the RegEx argument with apostrophes: `"{complex-regex}"`.
 
 == Example
 
