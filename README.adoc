@@ -1,5 +1,5 @@
 :toc:       macro
-:toclevels: 2
+:toclevels: 1
 :toc-title:
 
 image:https://img.shields.io/github/v/tag/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/tags]
@@ -54,4 +54,12 @@ args https://johannesfeederle.pixieset.com/client/loadphotos/ 37445558 familiemo
 
 == Changelog
 
-Tbd.
+=== https://github.com/pixelstuermer/pixieset-downloader/tree/1.0.0[1.0.0] (2021-08-14)
+
+==== Added
+
+* Basic functionality and project setup
+* Batch download of Pixieset collections
+** Based on a base url, a collection ID and key, a gallery name and a valid HTTP cookie
+** With the possibility to specify target file names and a counter separator
+** With an optional filter for image names via RegEx
