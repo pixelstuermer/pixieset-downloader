@@ -1,0 +1,38 @@
+:toc:       macro
+:toclevels: 2
+:toc-title:
+
+image:https://img.shields.io/github/license/pixelstuermer/pixieset-downloader[link=LICENSE]
+image:https://img.shields.io/badge/python-v3.9.6-blue[link=https://www.python.org/downloads/release/python-396] +
+image:https://github.com/pixelstuermer/pixieset-downloader/actions/workflows/lint-python.yml/badge.svg[link=https://github.com/pixelstuermer/pixieset-downloader/actions/workflows/lint-python.yml]
+image:https://img.shields.io/github/issues-pr/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/pulls]
+image:https://img.shields.io/github/issues/pixelstuermer/pixieset-downloader[link=https://github.com/pixelstuermer/pixieset-downloader/issues]
+
+[discrete]
+= pixieset-downloader
+
+Batch download of Pixieset collections.
+
+image:https://forthebadge.com/images/badges/works-on-my-machine.svg[link=https://forthebadge.com]
+
+toc::[]
+
+== TL;DR
+
+Tbd.
+
+== About
+
+Tbd.
+
+== Requirements
+
+Tbd.
+
+== How To Use
+
+Tbd.
+
+== Examples
+
+Tbd.
