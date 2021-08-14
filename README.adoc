@@ -114,8 +114,6 @@ It is also not guaranteed that absolutely all images have been downloaded, so th
 
 === https://github.com/pixelstuermer/pixieset-downloader/tree/master[Unreleased] (XXXX-XX-XX)
 
-https://github.com/pixelstuermer/pixieset-downloader/compare/1.0.1...master[Full Changelog]
-
 ==== Added
 
 ==== Changed
@@ -123,8 +121,6 @@ https://github.com/pixelstuermer/pixieset-downloader/compare/1.0.1...master[Full
 ==== Fixed
 
 === https://github.com/pixelstuermer/pixieset-downloader/tree/1.0.1[1.0.1] (2021-08-14)
-
-https://github.com/pixelstuermer/pixieset-downloader/compare/1.0.0...1.0.1[Full Changelog]
 
 ==== Added
 
