@@ -49,7 +49,7 @@ def is_url(url):
 
 
 def is_image_name(image_name):
-    return re.match('.*\\.(gif|jpe?g|tiff?|png|webp|bmp)', image_name)
+    return re.match('(?i).*\\.(gif|jpe?g|tiff?|png|webp|bmp)', image_name)
 
 
 def matches(file_name_filter, file_name):
