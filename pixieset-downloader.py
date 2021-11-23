@@ -24,7 +24,8 @@ def perform_page_data_request(arguments, page):
                   'cuk': arguments.collection_key,
                   'gs': arguments.gallery_name,
                   'page': page}
-    headers = {'x-requested-with': 'XMLHttpRequest'}
+    headers = {'x-requested-with': 'XMLHttpRequest',
+               'user-agent': 'none'}
     cookies = {'PHPSESSID': arguments.cookie}
     return requests.get(arguments.base_url, params=parameters, headers=headers, cookies=cookies)
 
