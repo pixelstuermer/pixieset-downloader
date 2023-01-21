@@ -81,7 +81,7 @@ def save_image_to_file(image_name, image_data):
 def main():
     arguments = init_arguments_parser()
     has_next_page = True
-    page = 0
+    page = 1
     images_counter = 0
     image_size_counter = 0
     while has_next_page:
